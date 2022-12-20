@@ -1,0 +1,15 @@
+@import './global/variables.scss';
+.item {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	background-color: transparent;
+
+	li {
+		padding: 1rem;
+		color: black;
+		font-size: 1.5rem;
+	}
+}

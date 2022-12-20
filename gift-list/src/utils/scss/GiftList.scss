@@ -1,0 +1,32 @@
+@import './global/variables.scss';
+
+.list-container {
+	width: 95%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.item-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.list {
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	width: 100%;
+
+	button {
+		background-color: $primary-color;
+		color: $secondary-color;
+		width: 30px;
+		height: 30px;
+		border-radius: 1rem;
+	}
+}

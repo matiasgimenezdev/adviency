@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './utils/css/App.css';
+import GiftList from './components/GiftList';
+import Form from './components/Form';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [gifts, setGifts] = useState([]);
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const capitalizeFirstLetter = (string) => {
+			return string.charAt(0).toUpperCase() + string.slice(1);
+		};
+
+		const isRepeated = (value) => {
+			let repeated = false;
+			for (let item of gifts) {
+				if (item.toLowerCase() === value) {
+					repeated = true;
+				}
+			}
+			return repeated;
+		};
+		const newGift = e.currentTarget.gift.value.toLowerCase().trim();
+		if (isRepeated(newGift) || newGift.length === 0) {
+			alert('Inserte un regalo que no este repetido');
+		} else {
+			setGifts([...gifts, capitalizeFirstLetter(newGift)]);
+		}
+	};
+
+	const handleRemoveAllGifts = () => {
+		setGifts([]);
+	};
+
+	const handleRemoveOneGift = (gift) => {
+		console.log('hola');
+		const newState = [];
+		console.log(gift);
+		for (let item of gifts) {
+			if (item !== gift) {
+				newState.push(item);
+			}
+		}
+		console.log(newState);
+		setGifts([...newState]);
+	};
+
+	return (
+		<div className='App'>
+			<h2>Lista de Regalos</h2>
+			<Form handleSubmit={handleSubmit} />
+			<GiftList
+				gifts={gifts}
+				handleRemoveAllGifts={handleRemoveAllGifts}
+				handleRemoveOneGift={handleRemoveOneGift}
+			/>
+		</div>
+	);
 }
 
 export default App;

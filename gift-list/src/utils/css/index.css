@@ -1,0 +1,25 @@
+html {
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+	font-family: 'Poppins', sans-serif;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	background-image: url('https://www.freecodecamp.org/news/content/images/size/w1000/2021/06/w-qjCHPZbeXCQ-unsplash.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}

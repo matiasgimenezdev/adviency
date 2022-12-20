@@ -1,0 +1,12 @@
+@import './global/variables.scss';
+.App {
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+	height: 70vh;
+	border-radius: 1rem;
+	width: 50vw;
+	background-color: $secondary-color;
+}

@@ -1,0 +1,20 @@
+@import './global/variables.scss';
+.button {
+	border: unset;
+	border-radius: 5px;
+	z-index: 1;
+	background-color: $primary-color;
+	font-weight: bold;
+	font-size: 0.8rem;
+	box-shadow: 4px 8px 19px -3px $shadow-color;
+	transition: transform 100ms;
+	overflow: hidden;
+	height: 35px;
+	width: 40%;
+}
+
+.button:hover {
+	transform: scale(1.07);
+	font-size: 0.9rem;
+	outline: black solid 0.3px;
+}

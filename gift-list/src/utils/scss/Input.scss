@@ -5,7 +5,7 @@
 	border: none;
 	font-size: 1rem;
 	padding: 1rem;
-	width: 70%;
+	width: 80%;
 	height: 35px;
 	text-align: center;
 	background-color: $secondary-color;
@@ -16,4 +16,14 @@
 .input:focus {
 	outline: black solid 0.3px;
 	transform: scale(1.1);
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	appearance: none;
+	margin: 0;
+}
+
+input[type='number'] {
+	appearance: textfield;
 }

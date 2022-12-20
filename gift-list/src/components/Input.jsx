@@ -10,6 +10,7 @@ const Input = (props) => {
 			name={props.name}
 			id={props.id}
 			placeholder={props.placeholder}
+			tabIndex={0}
 		></input>
 	);
 };

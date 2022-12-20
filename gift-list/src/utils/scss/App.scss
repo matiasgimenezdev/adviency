@@ -3,10 +3,18 @@
 	margin: auto;
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: center;
+	gap: 3rem;
 	flex-direction: column;
 	height: 70vh;
 	border-radius: 1rem;
 	width: 50vw;
-	background-color: $secondary-color;
+	background-image: url('https://images.unsplash.com/photo-1606310737718-01c223c7425b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d2hpdGUlMjBjaHJpc3RtYXN8ZW58MHx8MHx8&w=1000&q=80');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	h2 {
+		font-size: 3rem;
+	}
 }

@@ -23,10 +23,13 @@
 	width: 100%;
 
 	button {
-		background-color: $primary-color;
-		color: $secondary-color;
+		background-color: $secondary-color;
+		color: black;
 		width: 30px;
 		height: 30px;
 		border-radius: 1rem;
+		text-align: center;
+		padding: 0;
+		margin: 0.2rem;
 	}
 }

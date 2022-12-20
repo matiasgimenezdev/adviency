@@ -8,14 +8,21 @@ const GiftList = ({ gifts, handleRemoveAllGifts, handleRemoveOneGift }) => {
 		if (gifts.length > 0) {
 			return (
 				<ul className='list'>
-					{gifts.map((value, index) => {
+					{gifts.map((gift, index) => {
 						return (
 							<div className='item-container'>
-								<Item key={index} gift={value} />
+								<Item
+									key={index}
+									gift={gift.value}
+									amount={gift.amount}
+									price={gift.price * gift.amount}
+									image={gift.image}
+									name={gift.name}
+								/>
 								<Button
 									value='x'
 									type='button'
-									handleClick={(e) => handleRemoveOneGift(value)}
+									handleClick={() => handleRemoveOneGift(gift.value)}
 								/>
 							</div>
 						);
@@ -25,7 +32,7 @@ const GiftList = ({ gifts, handleRemoveAllGifts, handleRemoveOneGift }) => {
 		} else {
 			return (
 				<ul className='list'>
-					<Item gift='No hay regalos, agrega algo!' />
+					<Item gift='No hay regalos, agrega algo!' amount={0} />
 				</ul>
 			);
 		}

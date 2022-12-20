@@ -21,11 +21,14 @@
   width: 100%;
 }
 .list button {
-  background-color: #ffc0cb;
-  color: #fffff5;
+  background-color: #fffff5;
+  color: black;
   width: 30px;
   height: 30px;
   border-radius: 1rem;
+  text-align: center;
+  padding: 0;
+  margin: 0.2rem;
 }
 
 /*# sourceMappingURL=GiftList.css.map */

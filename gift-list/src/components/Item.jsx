@@ -12,7 +12,7 @@ const Item = ({ gift, amount, image, price, name }) => {
 						</li>
 						<img src={image} alt={gift} />
 					</div>
-					<div className='recipient'>🎁 {name}</div>
+					<div className='recipient'>🎅 {name}</div>
 				</>
 			) : (
 				<>

@@ -3,7 +3,12 @@ import '../utils/css/GiftList.css';
 import Button from '../components/Button';
 import Item from '../components/Item';
 
-const GiftList = ({ gifts, handleRemoveAllGifts, handleRemoveOneGift }) => {
+const GiftList = ({
+	gifts,
+	handleRemoveAllGifts,
+	handleRemoveOneGift,
+	handleUpdate,
+}) => {
 	const renderList = () => {
 		if (gifts.length > 0) {
 			return (
@@ -18,6 +23,11 @@ const GiftList = ({ gifts, handleRemoveAllGifts, handleRemoveOneGift }) => {
 									price={gift.price * gift.amount}
 									image={gift.image}
 									name={gift.name}
+								/>
+								<Button
+									value='E'
+									type='button'
+									handleClick={() => handleUpdate(gift.value)}
 								/>
 								<Button
 									value='x'

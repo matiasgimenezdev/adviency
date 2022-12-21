@@ -31,4 +31,15 @@
   margin: 0.2rem;
 }
 
+.totalPrice {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+hr {
+  background-color: #ffc0cb;
+  width: 100%;
+  height: 5px;
+}
+
 /*# sourceMappingURL=GiftList.css.map */

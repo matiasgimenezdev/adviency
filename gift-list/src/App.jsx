@@ -188,6 +188,14 @@ function App() {
 		setIsOpen(true);
 	};
 
+	const sumPrice = () => {
+		let total = 0;
+		for (let item of gifts) {
+			total = total + item.price * item.amount;
+		}
+		return total;
+	};
+
 	Modal.setAppElement('body');
 	return (
 		<div className='App'>
@@ -209,6 +217,7 @@ function App() {
 			</Modal>
 			<GiftList
 				gifts={gifts}
+				totalPrice={sumPrice()}
 				handleRemoveAllGifts={handleRemoveAllGifts}
 				handleRemoveOneGift={handleRemoveOneGift}
 				handleUpdate={handleUpdate}

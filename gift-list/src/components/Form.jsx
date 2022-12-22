@@ -3,7 +3,13 @@ import '../utils/css/Form.css';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
-const Form = ({ handleSubmit, handleRandomGift, error, values }) => {
+const Form = ({
+	handleSubmit,
+	handleRandomGift,
+	error,
+	values,
+	isUpdating,
+}) => {
 	const renderForm = () => {
 		if (error) {
 			return (
@@ -48,7 +54,11 @@ const Form = ({ handleSubmit, handleRandomGift, error, values }) => {
 						value={values.name}
 					/>
 					<small className='error'>{error}</small>
-					<Button value='Agregar' type='submit' />
+					{isUpdating ? (
+						<Button value='Confirmar' type='submit' />
+					) : (
+						<Button value='Agregar' type='submit' />
+					)}
 				</form>
 			);
 		} else {
@@ -93,7 +103,11 @@ const Form = ({ handleSubmit, handleRandomGift, error, values }) => {
 						placeholder='¿A quien?'
 						value={values.name}
 					/>
-					<Button value='Agregar' type='submit' />
+					{isUpdating ? (
+						<Button value='Confirmar' type='submit' />
+					) : (
+						<Button value='Agregar' type='submit' />
+					)}
 				</form>
 			);
 		}

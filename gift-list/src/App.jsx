@@ -1,5 +1,6 @@
 import './utils/css/App.css';
-import React, { useState } from 'react';
+import { modalStyles } from './utils/modalStyles';
+import React, { useState, useEffect } from 'react';
 import GiftList from './components/GiftList';
 import Form from './components/Form';
 import Button from './components/Button';
@@ -16,6 +17,7 @@ function App() {
 		'Mouse',
 		'Libro',
 	];
+
 	const [isUpdating, setIsUpdating] = useState(false);
 	const [gifts, setGifts] = useState([]);
 	const [error, setError] = useState(null);
@@ -28,30 +30,18 @@ function App() {
 		name: '',
 	});
 
-	const modalStyles = {
-		content: {
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-			flexDirection: 'column',
-			gap: '2rem',
-			height: '80vh',
-			width: '80vw',
-			top: '50%',
-			left: '50%',
-			right: 'auto',
-			bottom: 'auto',
-			marginRight: '-50%',
-			transform: 'translate(-50%, -50%)',
-			backgroundImage:
-				"url('https://images.unsplash.com/photo-1606310737718-01c223c7425b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d2hpdGUlMjBjaHJpc3RtYXN8ZW58MHx8MHx8&w=1000&q=80')",
-			backgroundPosition: 'center',
-			backgroundRepeat: 'no-repeat',
-			backgroundSize: 'cover',
-			fontSize: '2rem',
-		},
-		overlay: { zIndex: 1000 },
-	};
+	useEffect(() => {
+		if (gifts.length > 0) {
+			localStorage.setItem('gifts', JSON.stringify(gifts));
+		}
+	}, [gifts]);
+
+	useEffect(() => {
+		const savedGifts = JSON.parse(localStorage.getItem('gifts'));
+		if (savedGifts) {
+			setGifts(savedGifts);
+		}
+	}, []);
 
 	const handleRandomGift = (e) => {
 		function randomGift() {
@@ -70,6 +60,7 @@ function App() {
 	const handleCloseModal = () => {
 		setIsOpen(false);
 		setError(null);
+		setIsUpdating(false);
 		setFormValues({
 			value: '',
 			price: '',
@@ -77,7 +68,6 @@ function App() {
 			image: '',
 			name: '',
 		});
-		setIsUpdating(false);
 	};
 
 	const handleSubmit = (e) => {
@@ -212,6 +202,7 @@ function App() {
 					error={error}
 					values={formValues}
 					handleRandomGift={handleRandomGift}
+					isUpdating={isUpdating}
 				/>
 				<Button value='Volver' type='button' handleClick={handleCloseModal} />
 			</Modal>

@@ -1,4 +1,5 @@
 import './utils/css/App.css';
+import BackgroundMusic from './assets/sound.mp3';
 import { modalStyles } from './utils/modalStyles';
 import React, { useState, useEffect } from 'react';
 import GiftList from './components/GiftList';
@@ -19,6 +20,7 @@ function App() {
 	];
 
 	const [isUpdating, setIsUpdating] = useState(false);
+	const [soundActivated, setIsActivated] = useState(false);
 	const [gifts, setGifts] = useState([]);
 	const [error, setError] = useState(null);
 	const [isOpen, setIsOpen] = useState(false);
@@ -189,7 +191,40 @@ function App() {
 	Modal.setAppElement('body');
 	return (
 		<div className='App'>
-			<h2>Lista de Regalos</h2>
+			<div className='header'>
+				<h2>Lista de Regalos</h2>
+				{!soundActivated ? (
+					<button
+						type='button'
+						className='sound-button'
+						onClick={() => {
+							setIsActivated(true);
+						}}
+					>
+						🔇{' '}
+					</button>
+				) : (
+					<>
+						<button
+							type='button'
+							className='sound-button'
+							onClick={() => {
+								setIsActivated(false);
+							}}
+						>
+							🔉
+						</button>
+						<audio
+							autoPlay='autoplay'
+							onPlay={(e) => {
+								e.currentTarget.volume = '0.02';
+							}}
+						>
+							<source src={BackgroundMusic} />
+						</audio>
+					</>
+				)}
+			</div>
 			<Button
 				value='Nuevo regalo'
 				type='button'

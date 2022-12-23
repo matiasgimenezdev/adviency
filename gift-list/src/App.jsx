@@ -1,7 +1,7 @@
 import './utils/css/App.css';
 import BackgroundMusic from './assets/sound.mp3';
 import { modalStyles } from './utils/modalStyles';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import GiftList from './components/GiftList';
 import Form from './components/Form';
 import Button from './components/Button';
@@ -19,6 +19,7 @@ function App() {
 		'Libro',
 	];
 
+	const firstRender = useRef(false);
 	const [isUpdating, setIsUpdating] = useState(false);
 	const [soundActivated, setIsActivated] = useState(false);
 	const [gifts, setGifts] = useState([]);
@@ -33,17 +34,20 @@ function App() {
 	});
 
 	useEffect(() => {
-		if (gifts.length > 0) {
-			localStorage.setItem('gifts', JSON.stringify(gifts));
-		}
-	}, [gifts]);
-
-	useEffect(() => {
 		const savedGifts = JSON.parse(localStorage.getItem('gifts'));
 		if (savedGifts) {
 			setGifts(savedGifts);
+			firstRender.current = true;
 		}
 	}, []);
+
+	useEffect(() => {
+		if (firstRender.current) {
+			firstRender.current = false;
+			return;
+		}
+		localStorage.setItem('gifts', JSON.stringify(gifts));
+	}, [gifts]);
 
 	const handleRandomGift = (e) => {
 		function randomGift() {

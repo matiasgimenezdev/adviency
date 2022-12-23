@@ -54,9 +54,7 @@ function App() {
 			const index = Math.floor(Math.random() * mockGifts.length);
 			return mockGifts[index];
 		}
-		console.log(e.currentTarget);
 		e.currentTarget.value = randomGift();
-		console.log(e.currentTarget.value);
 	};
 
 	const handleShowModal = () => {

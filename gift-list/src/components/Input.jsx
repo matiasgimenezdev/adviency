@@ -1,5 +1,5 @@
 import React from 'react';
-import '../utils/css/Input.css';
+import '../utils/scss/Input.scss';
 
 const Input = ({ type, name, id, placeholder, value, handleDoubleClick }) => {
 	const renderInput = () => {

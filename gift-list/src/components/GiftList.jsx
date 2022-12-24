@@ -1,5 +1,5 @@
 import React from 'react';
-import '../utils/css/GiftList.css';
+import '../utils/scss/GiftList.scss';
 import Button from '../components/Button';
 import Item from '../components/Item';
 

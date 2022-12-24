@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import '../utils/css/Button.css';
+import '../utils/scss/Button.scss';
 
 const Button = ({ type, value, handleClick }) => {
 	const refButton = useRef();

@@ -1,4 +1,4 @@
-import './utils/css/App.css';
+import './utils/scss/App.scss';
 import BackgroundMusic from './assets/sound.mp3';
 import { modalStyles } from './utils/modalStyles';
 import React, { useState, useEffect, useRef } from 'react';
@@ -194,7 +194,7 @@ function App() {
 	return (
 		<div className='App'>
 			<div className='header'>
-				<h2>Lista de Regalos</h2>
+				<h2>Lista de regalos</h2>
 				{!soundActivated ? (
 					<button
 						type='button'
@@ -233,7 +233,7 @@ function App() {
 				handleClick={handleShowModal}
 			/>
 			<Modal isOpen={isOpen} style={modalStyles}>
-				<h2>Agregar Regalo</h2>
+				<h2>Agregar regalo</h2>
 				<Form
 					handleSubmit={handleSubmit}
 					error={error}

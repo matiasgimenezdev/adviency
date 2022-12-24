@@ -1,5 +1,5 @@
 import React from 'react';
-import '../utils/css/Item.css';
+import '../utils/scss/Item.scss';
 
 const Item = ({ gift, amount, image, price, name }) => {
 	return (
